@@ -1,0 +1,64 @@
+h1 {
+  text-align: center;
+  color: #ff5ca2;
+}
+
+/* Grid Layout */
+.flavor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Card Style */
+.flavor-card {
+  background-color: #fff0f5;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.flavor-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image Styling */
+.flavor-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+/* Title + Description */
+.flavor-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.flavor-card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Add to Cart Button */
+.flavor-card button {
+  background-color: #ff5ca2;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.flavor-card button:hover {
+  background-color: #e04e91;
+}

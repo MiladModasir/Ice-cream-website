@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sweet Treat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">🍦 Sweet Treat</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="flavor.html">Flavors</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Welcome to Sweet Treat</h1>
+      <p>Create your dream ice cream. One scoop at a time.</p>
+      <a href="flavor.html" class="btn">Explore Flavors</a>
+    </div>
+  </section>
+  <section class="flavors">
+    <h2 class="section-title">Our Flavors</h2>
+    <div class="flavor-grid">
+      <div class="flavor-card">
+        <!-- 1 -->
+        <img src="../assets/vanilla.png" alt="Vanilla Ice Cream" class="flavor-img">
+        <h3 class="flavor-name">Vanilla Dream</h3>
+        <p class="flavor-desc">A classic creamy vanilla made from fresh beans.</p>
+        <button class="add-btn" data-flavor="vanilla-dream">Add to Sundae</button>
+      </div>
+      <!-- 2 -->
+      <div class="flavor-card">
+        <img src="../assets/Chocolate-bliss.png" alt="Chocolate Bliss" class="flavor-img">
+        <h3 class="flavor-name">Chocolate Bliss</h3>
+        <p class="flavor-desc"> Rich, dark chocolate ice cream in a bowl.</p>
+        <button class="add-btn" data-flavor="chocolate-bliss">Add to Sundae</button>
+      </div>
+      <!-- 3 -->
+      <div class="flavor-card">
+        <img src="../assets/Strawberry-swirl.png" alt="Strawberry Swirl" class="flavor-img">
+        <h3 class="flavor-name">Strawberry Swirl</h3>
+        <p class="flavor-desc"> Fresh strawberry ice cream with real fruit pieces.</p>
+        <button class="add-btn" data-flavor="strawberry-swirl">Add to Sundae</button>
+      </div>
+      <!-- 4 -->
+      <div class="flavor-card">
+        <img src="../assets/Minty-fresh.png" alt="Minty Fresh" class="flavor-img">
+        <h3 class="flavor-name">Minty Fresh</h3>
+        <p class="flavor-desc">Mint chocolate chip ice cream with chocolate chunks.</p>
+        <button class="add-btn" data-flavor="mint-chocolate">Add to Sundae</button>
+      </div>
+      <!-- 5 -->
+      <div class="flavor-card">
+        <img src="../assets/Cookies-cream.png" alt="Cookies & Cream" class="flavor-img">
+        <h3 class="flavor-name">Cookies & Cream</h3>
+        <p class="flavor-desc">Creamy ice cream loaded with cookie pieces.</p>
+        <button class="add-btn" data-flavor="cookies-cream">Add to Sundae</button>
+      </div>
+    </div>
+  </section>
+  <section class="sundae-builder">
+    <h2 class="section-title">Build Your Sundae</h2>
+
+    <div class="sundae-container">
+      <div class="sundae-preview">
+        <img src="../assets/empty-cone.png" alt="Your Sundae" class="cone-img" />
+        <ul class="scoop-list">
+        </ul>
+        <button id="clear-sundea">Clear Sundae</button>
+      </div>
+
+      <div class="order-summary">
+        <div class="total-scoops">
+          <p>Total Scoops: <span id="scoop-count">0</span></p>
+          <p>Estimated Price: $<span id="price-total">0.00</span></p>
+        </div>
+
+        <button class="place-order-btn">Place Order</button>
+
+      </div>
+  </section>
+
+  <section class="about">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>About Sweet Treat</h2>
+        <p>We’re on a mission to turn every scoop into a memory 🍦. Hand-crafted flavors made with real ingredients,
+          love, and a little bit of magic ✨.</p>
+      </div>
+      <div class="about-img">
+        <img src="../assets/ice-cream-shop.jpg" alt="Our ice cream shop">
+      </div>
+    </div>
+  </section>
+  <section class="testimonials">
+    <h2 class="section-title">What Our Customers Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p class="quote">"Best ice cream I’ve ever had. Every bite felt like a hug!"</p>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="customer">— Emily 🍓</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">"The mint chip literally changed my life. I’m not joking."</p>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="customer">— Jake 🌱</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">"Tastes like childhood and summer and joy in a cone."</p>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="customer">— Priya ✨</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="location">
+    <h2 class="section-title">Where to Find Us</h2>
+    <div class="location-content">
+      <div class="store-info">
+        <p><strong>📍 Address:</strong> 123 Sweet Street, Scoopville, CO</p>
+        <p><strong>🕒 Hours:</strong></p>
+        <ul>
+          <li>Mon–Fri: 12:00 PM – 9:00 PM</li>
+          <li>Sat–Sun: 10:00 AM – 10:00 PM</li>
+        </ul>
+      </div>
+      <div class="store-img">
+        <img src="../assets/map-placeholder.png" alt="Map location">
+      </div>
+    </div>
+  </section>
+  <section class="why-choose">
+    <h2 class="section-title">Why Choose Sweet Treat?</h2>
+    <ul class="reasons">
+      <li>🍦 Made with real ingredients</li>
+      <li>💖 Handcrafted with love</li>
+      <li>🚚 Local delivery available</li>
+      <li>🌿 Vegan & dairy-free options</li>
+    </ul>
+  </section>
+
+  <footer class="site-footer">
+    <p>© 2025 Sweet Treat. Crafted with 🍦 & ❤️ by Milad.</p>
+    <div class="social-links">
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">GitHub</a>
+    </div>
+  </footer>
+
+
+
+  <div id="flavor-popup" class="popup hidden">
+    <div class="popup-content">
+      <span id="close-popup">&times;</span>
+      <img id="popup-img" src="" alt="" class="flavor-img">
+      <h2 id="popup-title"></h2>
+      <p id="popup-desc"></p>
+    </div>
+  </div>
+
+
+  <script src="../js/script.js"></script>
+</body>
+
+</html>

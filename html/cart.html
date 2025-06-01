@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/cart.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <title>Your Shopping Cart</title>
+</head>
+<body>
+  <body>
+  <header>
+    <div class="logo">🍦 Sweet Treat</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="flavor.html">Flavors</a>
+    </nav>
+  </div>
+  </header>
+
+  <main class="cart-page">
+    <h1>Your Shopping Cart</h1>
+
+    <!-- 🧁 Cart Items Container -->
+    <div class="cart-items">
+      <!-- Items will be injected here via JS -->
+    </div>
+
+    <!-- 🧾 Cart Summary -->
+    <div class="cart-summary">
+      <p><strong>Total:</strong> $<span id="cart-total">0.00</span></p>
+
+      <!-- 🎟 Promo Code Input -->
+      <input type="text" id="promo-code" placeholder="Enter promo code">
+      <button id="apply-promo">Apply</button>
+
+      <!-- ✅ Checkout Button -->
+      <a href="order.html">
+      <button class="checkout-btn">Proceed to Checkout</button>
+      </a>
+    </div>
+  </main>
+
+  <script src="../js/cart.js"></script>
+</body>
+
+</body>
+</html>

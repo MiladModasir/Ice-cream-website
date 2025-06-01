@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/order.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <title>Place Your Order | Sweet Treat</title>
+</head>
+<body>
+  <header>
+    <div class="logo">🍦 Sweet Treat</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="flavor.html">Flavors</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+        </div>
+  </header>
+
+  <main class="order-page">
+    <h1>Almost There! 🚚</h1>
+    <p>Just enter your delivery info below and we’ll start scooping!</p>
+
+    <form class="order-form">
+      <input type="text" placeholder="Full Name" required>
+      <input type="text" placeholder="Delivery Address" required>
+      <input type="text" placeholder="Preferred Delivery Time (optional)">
+      <input type="text" placeholder="Enter Your Cart Number" required>
+      <input type="text" placeholder="Billing address" required>
+      <input type="number" placeholder="Zip Code">
+      <input type="text" placeholder="Name on the Cart">
+      <button type="submit">Confirm Order</button>
+    </form>
+
+    <div class="confirmation hidden">
+      <h2>🎉 Order Confirmed!</h2>
+      <p>Your delicious creation is on its way! 🍨💨</p>
+      <canvas id="confetti"></canvas>
+    </div>
+  </main>
+
+  <script src="../js/order.js"></script>
+</body>
+</html>
