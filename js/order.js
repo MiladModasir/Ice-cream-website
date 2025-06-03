@@ -1,22 +1,22 @@
 const form = document.querySelector(".order-form");
 const confirmation = document.querySelector(".confirmation");
 
+function setupOrderForm() {
+  if (!form || !confirmation) return;
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  form.style.display = "none";
-  confirmation.classList.remove("hidden");
+    form.style.display = "none";
+    confirmation.classList.remove("hidden");
 
-  // Optionally: trigger confetti or emoji effects
-  confettiEffect();
-});
+    confettiEffect();
+  });
+}
 
-// Optional: Confetti 🎉
 function confettiEffect() {
-  const duration = 2 * 1000;
+  const duration = 2000;
   const end = Date.now() + duration;
-
   const colors = ["#bb0000", "#ffffff", "#ff69b4"];
 
   (function frame() {
@@ -35,8 +35,8 @@ function confettiEffect() {
       colors: colors,
     });
 
-    if (Date.now() < end) {
-      requestAnimationFrame(frame);
-    }
+    if (Date.now() < end) requestAnimationFrame(frame);
   })();
 }
+
+setupOrderForm();

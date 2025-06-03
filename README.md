@@ -28,11 +28,8 @@
 
 ---
 
-## 📸 Screenshots
 
-<!-- Drop a few images here once you're done styling -->
 
----
 
 ## 🚀 Getting Started
 

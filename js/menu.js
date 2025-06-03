@@ -21,7 +21,7 @@ function saveCart () {
 
 // loop through all the add btns
 
-
+function setupAddToCartButtons() {
 addToCartBtn.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     const productCard = e.target.closest(".product-card");
@@ -53,5 +53,11 @@ addToCartBtn.forEach((btn) => {
   })
 })
 
+}
+
+
+
 // call updateCartCount on page load
 updateCartCount();
+// call setupAddToCartButtons to add event listeners
+setupAddToCartButtons();

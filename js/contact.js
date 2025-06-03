@@ -1,6 +1,7 @@
 const form = document.querySelector(".contact-form");
 const confirmation = document.querySelector(".confirmation-message")
 
+function setupContactForm() {
 form.addEventListener("submit", function(e) {
   e.preventDefault();
   const nameInput = form.querySelector("input[type = 'text']");
@@ -9,3 +10,7 @@ form.addEventListener("submit", function(e) {
   confirmation.classList.add("visible");
   form.reset();
   });
+}
+
+setupContactForm();
+

@@ -8,27 +8,30 @@ const popupImg = document.getElementById('popup-img');
 const popupTitle = document.getElementById('popup-title');
 const popupDesc = document.getElementById('popup-desc');
 const closeBtn = document.getElementById('close-popup');
+const placeOrderbtn = document.querySelector(".place-order-btn");
+const clearBtn = document.querySelector("#clear-sundea");
 
 
 
 // loop through all the add buttons
 let sundrea = []
 
-addBtn.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    // grab the flavoe name
-    const flavorName = btn.getAttribute("data-flavor");
-    // check if the flavor is already in the sundrea array
-    if(sundrea.includes(flavorName)) {
-      alert("You already have this flavor in your sundrea!");
-      return;
-    }
-    sundrea.push(flavorName);
-    renderSundea();
+function setupAddToCartButtons() { 
+  addBtn.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const flavorName = btn.getAttribute("data-flavor");
+      if (sundrea.includes(flavorName)) {
+        alert("You already have this flavor in your sundrea!");
+        return;
+      }
+      sundrea.push(flavorName);
+      renderSundea();
+    });
   });
-});
-const placeOrderbtn = document.querySelector(".place-order-btn");
+}
 
+
+function setupPlaceOrderButton() {
 placeOrderbtn.addEventListener("click", (e) => {
   if (sundrea.length === 0) {
     e.preventDefault();
@@ -43,11 +46,13 @@ placeOrderbtn.addEventListener("click", (e) => {
     window.location.href = "order.html"; 
   }, 1500); 
 });
+}
+
 
     
 
 function renderSundea() {
-  // 
+  // clear the scoop list
   scoopList.innerHTML = ""
   // loop through the sundrea array
   sundrea.forEach((flavor) => {
@@ -98,13 +103,17 @@ function loadSundrea() {
 // clear is from local storage 
 // call renderSundea() to update Ui
 
-const clearBtn = document.querySelector("#clear-sundea");
+function setupClearButton() {
 clearBtn.addEventListener("click", () => {
   sundrea = [];
   localStorage.removeItem("sundrea");
   renderSundea();
 });
+}
 
+
+
+function setupFlavorCards() {
 cards.forEach(card => {
   card.addEventListener('click', () => {
     const img = card.querySelector('img').src;
@@ -130,10 +139,19 @@ popup.addEventListener("click", (e) => {
 closeBtn.addEventListener('click', () => {
   popup.classList.add('hidden');
 });
+}
 
 
 
 
-loadSundrea();
 
+function init() {
+  setupAddToCartButtons();
+  setupPlaceOrderButton();
+  setupClearButton();
+  setupFlavorCards(); 
+  loadSundrea();
+}
+
+init();
 

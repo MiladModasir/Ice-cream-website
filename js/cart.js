@@ -1,6 +1,7 @@
 // cart.js
 let cart = [];
 let currentTotal = 0;
+let promoApplied = false;
 
 const savedCart = localStorage.getItem("cart");
 if (savedCart) {
@@ -13,6 +14,12 @@ const totalDisplay = document.getElementById("cart-total");
 function renderCart() {
   cartContainer.innerHTML = "";
   currentTotal = 0;
+
+  if (cart.length === 0) {
+    cartContainer.innerHTML = "<p>Your cart is empty 🍦</p>";
+    totalDisplay.textContent = "0.00";
+    return;
+  }
 
   cart.forEach(item => {
     const cartItem = document.createElement("div");
@@ -39,54 +46,53 @@ function renderCart() {
   totalDisplay.textContent = currentTotal.toFixed(2);
 }
 
-// Handle increase/decrease/remove
-cartContainer.addEventListener("click", (e) => {
-  const id = e.target.dataset.id;
-  if (!id) return;
+function setupCartContainer(){
+  cartContainer.addEventListener("click", (e) => {
+    const id = e.target.dataset.id;
+    if (!id) return;
 
-  if (e.target.classList.contains("quantity-increase")) {
-    cart = cart.map(item => {
-      if (item.id === id) item.quantity++;
-      return item;
-    });
-  }
+    if (e.target.classList.contains("quantity-increase")) {
+      cart = cart.map(item => {
+        if (item.id === id) item.quantity = Number(item.quantity) + 1;
+        return item;
+      });
+    }
 
-  if (e.target.classList.contains("quantity-decrease")) {
-    cart = cart.map(item => {
-      if (item.id === id) item.quantity--;
-      return item;
-    }).filter(item => item.quantity > 0);
-  }
+    if (e.target.classList.contains("quantity-decrease")) {
+      cart = cart.map(item => {
+        if (item.id === id) item.quantity = Number(item.quantity) - 1;
+        return item;
+      }).filter(item => item.quantity > 0);
+    }
 
-  if (e.target.classList.contains("delete-btn")) {
-    cart = cart.filter(item => item.id !== id);
-  }
+    if (e.target.classList.contains("delete-btn")) {
+      cart = cart.filter(item => item.id !== id);
+    }
 
-  localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+  });
+
+  const applyBtn = document.getElementById("apply-promo");
+  applyBtn.addEventListener("click", () => {
+    if (promoApplied) return alert("Promo already applied!");
+
+    const code = document.getElementById("promo-code").value.trim().toUpperCase();
+
+    if (code === "SWEET10") {
+      const discounted = currentTotal * 0.9;
+      totalDisplay.textContent = discounted.toFixed(2);
+      alert("Promo code applied! You saved 10%.");
+      promoApplied = true;
+    } else {
+      alert("Invalid promo code");
+    }
+  });
+}
+
+function init() {
   renderCart();
-});
+  setupCartContainer();
+}
 
-// Handle promo
-const applyBtn = document.getElementById("apply-promo");
-applyBtn.addEventListener("click", () => {
-  const code = document.getElementById("promo-code").value.trim().toUpperCase();
-
-  if (code === "SWEET10") {
-    const discounted = currentTotal * 0.9;
-    totalDisplay.textContent = discounted.toFixed(2);
-    alert("Promo code applied! You saved 10%.");
-  } else {
-    alert("Invalid promo code");
-  }
-});
-
-// Handle checkout
-/* const checkoutBtn = document.querySelector(".checkout-btn");
-checkoutBtn.addEventListener("click", () => {
-  alert("🚧 Checkout coming soon! Stay tuned 🍦");
-}); */
-
-
-
-// Init
-renderCart();
+init();

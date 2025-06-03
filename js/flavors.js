@@ -1,5 +1,6 @@
-// starts creating the flavoes array(name, img, description, price, id)
+// flavor.js
 
+// Flavor data
 const flavors = [
   {
     name: "Vanilla",
@@ -22,8 +23,6 @@ const flavors = [
     price: 4.00,
     id: 3
   },
-  
-  
   {
     name: "Cookies and Cream",
     img: "../assets/cookies-and-cream.jpg",
@@ -31,78 +30,70 @@ const flavors = [
     price: 4.50,
     id: 5
   }
-]
+];
 
-// Function to display flavors
+// Render all flavors
 function displayFlavors() {
-const flavorsContainer = document.querySelector(".flavor-grid"); // typo fix
-
-flavors.forEach(flavor => { // rename 'flavors' param to 'flavor'
-  const flavorCard = document.createElement("div");
-  flavorCard.className = "flavor-card";
-  flavorCard.innerHTML = `
-    <img src="${flavor.img}" alt="${flavor.name}">
-    <h3>${flavor.name}</h3>
-    <p>${flavor.description}</p>
-    <p>Price: $${flavor.price.toFixed(2)}</p>
-    <button class="add-to-cart" 
-            data-id="${flavor.id}" 
-            data-name="${flavor.name}" 
-            data-price="${flavor.price}" 
-            data-img="${flavor.img}">
-      Add to Cart
-    </button>
-  `;
-  flavorsContainer.appendChild(flavorCard);
-});
+  const flavorsContainer = document.querySelector(".flavor-grid");
+  flavors.forEach(flavor => {
+    const flavorCard = document.createElement("div");
+    flavorCard.className = "flavor-card";
+    flavorCard.innerHTML = `
+      <img src="${flavor.img}" alt="${flavor.name}">
+      <h3 class="flavor-name">${flavor.name}</h3>
+      <p class="flavor-desc">${flavor.description}</p>
+      <p>Price: $${flavor.price.toFixed(2)}</p>
+      <button class="add-to-cart" 
+              data-id="${flavor.id}" 
+              data-name="${flavor.name}" 
+              data-price="${flavor.price}" 
+              data-img="${flavor.img}">
+        Add to Cart
+      </button>
+    `;
+    flavorsContainer.appendChild(flavorCard);
+  });
 }
 
-
-// Call the function to display flavors
-displayFlavors();
-
-// cart setup 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
+// Update cart count bubble
 function updateCartCount() {
   const cartCount = document.querySelector(".cart-count");
   const totalCount = cart.reduce((total, item) => total + item.quantity, 0);
   cartCount.textContent = totalCount;
-  cartCount.Style.disply = totalCount > 0 ? "block" : "none";
+  cartCount.style.display = totalCount > 0 ? "block" : "none";
 }
 
-// Save to localStorage
+// Save cart to localStorage
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
 }
 
-// Add event listener to flavor buttons
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("add-to-cart")) {
-    const id = e.target.dataset.id;
-    const name = e.target.dataset.name;
-    const price = parseFloat(e.target.dataset.price);
-    const img = e.target.dataset.img;
+// Setup listeners for "Add to Cart" buttons
+function setupFlavorButtons() {
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("add-to-cart")) {
+      const id = e.target.dataset.id;
+      const name = e.target.dataset.name;
+      const price = parseFloat(e.target.dataset.price);
+      const img = e.target.dataset.img;
 
-    const item = {
-      id,
-      name,
-      price,
-      image: img,
-      quantity: 1
-    };
+      const item = { id, name, price, image: img, quantity: 1 };
+      const existing = cart.find(i => i.id === id);
 
-    const existing = cart.find(i => i.id === id);
-    if (existing) {
-      existing.quantity++;
-    } else {
-      cart.push(item);
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push(item);
+      }
+
+      saveCart();
     }
+  });
+}
 
-    saveCart();
-  }
-});
-
-// Call once on load
+// Init
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+displayFlavors();
+setupFlavorButtons();
 updateCartCount();
