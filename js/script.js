@@ -43,7 +43,7 @@ placeOrderbtn.addEventListener("click", (e) => {
   e.preventDefault(); 
 
   setTimeout(() => {
-    window.location.href = "order.html"; 
+    window.location.href = "./html/order.html"; 
   }, 1500); 
 });
 }
