@@ -94,7 +94,11 @@
   .contact-form {
     padding: 1rem;
   }
-
+  .order-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .order-form input,
   .order-form button {
     width: 100%;
