@@ -29,7 +29,7 @@
 
 ## 🚀 Live Demo
 
-👉 [Sweet Treat on GitHub Pages](https://miladmodasir.github.io/Ice-cream-website/)
+👉 http://ice-cream-web.com/
 
 ---
 
