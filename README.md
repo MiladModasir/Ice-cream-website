@@ -29,7 +29,7 @@
 
 ## 🚀 Live Demo
 
-👉 http://ice-cream-web.com/
+👉 https://miladmodasir.github.io/Ice-cream-website/
 
 ---
 
